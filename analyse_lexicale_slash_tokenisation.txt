@@ -1,0 +1,48 @@
+                                            ROADMAP
+
+https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+
+ANALYSE LEXICALE / TOKENISATION : 
+
+Parmi les tokens, on retrouve : 
+
+- Identifiers
+- Operators
+- Constants
+- Keywords 
+- Literals
+- Punctuators 
+- Special characters
+
+
+
+INTRODUCTION:
+
+Le principe de l'analayse lexicale (lexing ou tokenisation) est de convertir une chaine de caracteres en une serie de mots appeles
+tokens, interpretables en shell. 
+Par exemple (en C)
+int i = 0;
+while(i < 4) --> while doit etre suivis de parentheses avec une condition, sinon ca ne veut rien dire
+    i++; --> cet enchainement permet d'incrementer de 1, on a besoin d'un ';' (semi colon) pour marquer la fin alors que le while pas besoin...
+
+Lexer une chaine de caracteres permet donc de savoir ce qu'on doit en faire. 
+
+
+Notre shell doit s'implementer en deux parties : PARSING - EXECUTION
+
+PARSING : on commencer par analyser (lexer) notre input donnee sur l'entree standard, puis a trier les tokens obtenus selon leurs types
+dans une structure de donnee (Command Table).
+exemple : ls  -la  ==> (commande == ls) (option == la), option specifiee par l'usage d'un tiret
+
+EXECUTION : consiste a executer la commande contenue dans la structure de donnee obtenue apres parsing
+
+
+
+                                            PARSING
+
+
+
+characters           ===>   LEXER/TOKENIZER            ==>                PARSER 
+ls -al | grep me            <ls> <-al>                       Command Table
+                            <PIPE>                           ls    |    -al 
+                            <grep> <me>                      grep  |    me 
