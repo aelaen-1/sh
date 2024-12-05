@@ -33,6 +33,7 @@ int ft_strcmp(char *s1, char *s2)
         i++;
     return (s1[i] - s2[i]);
 }
+
 int is_space(char c)
 {
     if (c >= 9 && c <= 13)
@@ -46,4 +47,16 @@ int is_builtin(char *s)
         !ft_strcmp(s, "export") || !ft_strcmp(s, "unset") || !ft_strcmp(s, "env") || !ft_strcmp(s, "exit"))
             return (1);
     return (0);
+}
+
+void free_split(char **s)
+{
+    int i = 0;
+    while (s[i])
+    {
+        free(s[i]);
+        i++;
+    }
+    free(s);
+    s = NULL; // obligatoire ? 
 }

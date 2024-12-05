@@ -29,17 +29,6 @@ enum e_token_kind
     WORD
 };
 
-enum e_builtin
-{
-    CD,
-    // ECHO, //pb
-    PWD,
-    EXPORT,
-    UNSET,
-    ENV,
-    EXIT
-};
-
 enum e_operator
 {
     PIPE, // |
