@@ -1,7 +1,7 @@
 #include "include/lexer.h"
 
 
-size_t	count(char const *s, char c)
+size_t	count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -36,7 +36,7 @@ int ft_strcmp(char *s1, char *s2)
 
 int is_space(char c)
 {
-    if (c >= 9 && c <= 13)
+    if (c == 32 || (c >= 9 && c <= 13))
         return (1);
     return (0);
 }
@@ -58,5 +58,5 @@ void free_split(char **s)
         i++;
     }
     free(s);
-    s = NULL; // obligatoire ? 
+    s = NULL;
 }

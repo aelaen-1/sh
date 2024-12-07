@@ -21,10 +21,20 @@
 # include <curses.h>
 # include <term.h>
 
+enum e_builtins
+{
+    CD,
+    ECHO,
+    ENV,
+    PWD,
+    EXPORT,
+    UNSET,
+    EXIT
+};
+
 enum e_token_kind
 {
     STRING,
-    SPECIAL_CHAR,
     OPERATOR,
     WORD
 };
@@ -36,31 +46,21 @@ enum e_operator
     LESS, // <
     GREAT, // >
     DLESS, //  <<
-    DGREAT // >>
+    DGREAT, // >>
+    OPEN_PAR, // (
+    CLOSE_PAR // )
 };
-
-typedef struct s_token
-{
-    enum e_token_kind kind;
-    int is_builtin;
-    int is_operator;
-
-}t_token;
 
 typedef struct s_input
 {
-    char *full_input;
-    char **token_array;//split input
 
-    int nb_of_tokens;
-}t_input;
-
+}   t_input;
 
 //utils.c
 int is_builtin(char *s);
 int is_space(char c);
 int ft_strcmp(char *s1, char *s2);
-size_t	count(char const *s, char c);
+size_t	count_words(char const *s, char c);
 
 
 #endif

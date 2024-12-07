@@ -1,5 +1,7 @@
 #include "include/lexer.h"
 
+//   |   &   ;   (  )  <  >  space  tab  newline’
+
 
 /*Fonction qui retourne l'input sous la forme d'un tableau de tokens*/
 char **lex_input(char *s)

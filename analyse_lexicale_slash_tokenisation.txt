@@ -46,3 +46,46 @@ characters           ===>   LEXER/TOKENIZER            ==>                PARSER
 ls -al | grep me            <ls> <-al>                       Command Table
                             <PIPE>                           ls    |    -al 
                             <grep> <me>                      grep  |    me 
+
+
+
+
+--- -- --- - -- -- - -- - --- -- --- - -- -- - -- - --- -- --- - -- -- - -- - --- -- --- - -- -- - -- ---- -- --- - -- -- - -- ---- -- --- - -- -- - -- -
+The processor has seven steps that it goes through for each command you give it.
+
+The Seven-Step Process
+
+Reads command
+Tokenization
+Command Identification
+Command Expansion
+Quote Removal
+Redirections
+Command Execution
+
+
+I -  Première partie
+        Reads command
+        Tokenization
+
+We must split the characters into parts, or tokens. Tokens are separated by ‘|, &, ;, (, ), <, >, space, tab or newline’.
+Ces séparateurs sont appelés méta-caractères. Un token qui n'en contient pas ou qui n'est pas entre QUOTES est un WORD.
+Un token qui contient au moins un méta-caractère est un OPERATEUR. 
+
+unclose
+
+|  
+
+&  
+
+; 
+
+( )  
+
+< 
+
+> 
+
+[space] 32
+[horizontal tab] 9
+[vertical tab] 11
